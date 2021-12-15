@@ -39,16 +39,34 @@ func main() {
 		H  scheme = "HTTP"
 		HS scheme = "HTTPS"
 	)
-	fmt.Println("H: ", H, "HS:", HS)
+	fmt.Println("H: ",H, "HS:",HS)
 
+	
+	
 	// 枚举类型 iota
+	/*
+	  iota是一个特殊的常量，可以被编译器自动修改的常量
+	  每当定义一个const，iota第一次出现的时候为0
+	  每当定义一个常量，iota就会自动增加1
+	  直到下一个iota出现，值又变成0
+	  
+	  iota 在const 关键字出现的时候被重置为0，const 中的变量每声明一行常量声明将使iota 计数一次
+	*/
+	
 	const (
 		n1 = iota // n1=0
 		n2        // n2=1
 		n3        // n3=2
 	)
-	fmt.Println("n1: ", n1, "n2: ", n2, "n3: ", n3)
+	fmt.Println("n1: ",n1, "n2: ",n2, "n3: ",n3)
 
+	const (
+	n11 = iota // n1=0
+	n12        // n2=1
+	n13        // n3=2
+	)
+	fmt.Println("n11: ",n11, "n12: ",n12, "n13: ",n13)
+	
 	// 匿名变量跳过某些值
 	const (
 		m1 = iota //0
@@ -56,7 +74,7 @@ func main() {
 		_
 		m4 //3
 	)
-	fmt.Println("m1: ", m1, "m2: ", m2, "m4: ", m4)
+	fmt.Println("m1: ",m1, "m2: ",m2, "m4: ",m4)
 
 	// iota声明中间插队
 	const (
@@ -67,7 +85,7 @@ func main() {
 	)
 	const j5 = iota //0
 
-	fmt.Println("j1: ", j1, "j2: ", j2, "j3: ", j3, "j4: ", j4, "j5: ", j5)
+	fmt.Println("j1: ",j1, "j2: ",j2, "j3: ",j3, "j4: ",j4, "j5: ",j5)
 
 	// 定义数量级
 	const (
@@ -78,7 +96,7 @@ func main() {
 		TB = 1 << (10 * iota)
 		PB = 1 << (10 * iota)
 	)
-	fmt.Println("KB: ", KB, "MB:", MB, "GB:", GB, "TB: ", TB, "PB: ", PB)
+	fmt.Println("KB: ",KB, "MB:",MB, "GB:",GB, "TB: ",TB, "PB: ",PB)
 
 	// 多个iota定义在一行
 	const (
@@ -86,7 +104,7 @@ func main() {
 		e, r                      //2,3
 		t, y                      //3,4
 	)
-	fmt.Println("q: ", q, "w: ", w, "e:", e, "r: ", r, "t:", t, "y: ", y)
+	fmt.Println("q: ",q, "w: ",w, "e:",e, "r: ",r, "t:",t, "y: ",y)
 
 	// 示例1
 	/*const (

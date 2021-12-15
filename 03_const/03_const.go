@@ -87,6 +87,25 @@ func main() {
 
 	fmt.Println("j1: ",j1, "j2: ",j2, "j3: ",j3, "j4: ",j4, "j5: ",j5)
 
+
+        const (
+		A = iota    // 0
+		B           // 1
+		C           // 2
+		D = "haha"  // haha   iota = 3
+		E           // haha   iota = 4
+		F = 100     // 100    iota = 5
+		G           // 100    iota = 6
+		H = iota    // iota = 7
+		I           // iota = 8
+	)
+	const (
+		J = iota    // 0
+	)
+        
+	fmt.Println(A, B, C, D, E, F, G, H, I, J)
+
+
 	// 定义数量级
 	const (
 		_  = iota
@@ -97,6 +116,7 @@ func main() {
 		PB = 1 << (10 * iota)
 	)
 	fmt.Println("KB: ",KB, "MB:",MB, "GB:",GB, "TB: ",TB, "PB: ",PB)
+
 
 	// 多个iota定义在一行
 	const (

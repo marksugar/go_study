@@ -61,9 +61,9 @@ func main() {
 	fmt.Println("n1: ",n1, "n2: ",n2, "n3: ",n3)
 
 	const (
-	n11 = iota // n1=0
-	n12        // n2=1
-	n13        // n3=2
+	n11 = iota  // n1=0
+	n12 = iota  // n2=1
+	n13 = iota  // n3=2
 	)
 	fmt.Println("n11: ",n11, "n12: ",n12, "n13: ",n13)
 	

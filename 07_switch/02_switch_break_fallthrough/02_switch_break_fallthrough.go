@@ -31,6 +31,7 @@ func main() {
 
 	fmt.Println("----------")
 
+	// case匹配成功后会执行最后的fallthrough语句，则此处会打印第二季度和紧跟在fallthrough后一个case中的第三季度
 	m := 2
 	switch m {
 	case 1:

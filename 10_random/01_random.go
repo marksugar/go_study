@@ -14,7 +14,7 @@ func main() {
 	fmt.Println(num)
 
 	for i := 0; i < 10; i++ {
-		num2 := rand.Intn(10) // 0~9之间
+		num2 := rand.Intn(10) // Intn[0,n),左闭右开，表示0~9之间
 		fmt.Println(num2)
 	}
 	rand.Seed(10000)
@@ -52,7 +52,6 @@ func main() {
 
 	/* 获取指定范围内的随机数
 	Intn  [0,n)
-
 	[15,76]
 		[0,76-15] 也就是 [0,61] + 15
 	*/

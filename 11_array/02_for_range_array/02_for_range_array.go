@@ -39,7 +39,7 @@ func main() {
 
 	fmt.Println("----------")
 	
-	// 只要数值不要索引,用_丢弃
+	// 只要数值不要索引,用_丢弃索引
 	sum := 0
 	for _, value := range arr1 {
 		sum += value

@@ -2,6 +2,13 @@ package main
 
 import "fmt"
 
+/*
+	const来定义常量，变量定义后必须要使用，否则编译的时候报错
+	而常量定义后可以不使用，编译时不会报错
+	
+	每遇到一次 const 关键字，iota 就重置为 0
+*/
+
 func main() {
 	fmt.Println(100)
 	fmt.Println("allenjol")
@@ -10,19 +17,35 @@ func main() {
 	fmt.Println("URL: ", URL)
 
 	const PI = 3.14
-	fmt.Println("PI: ", PI)
+	fmt.Println("PI:", PI)
 
 	const c1, c2, c3 = 100, 3.14, "jol"
-	fmt.Println("c1: ", c1, "c2: ", c2, "c3: ", c3)
+	fmt.Println("c1:", c1, "c2:", c2, "c3:", c3)
+	
+	// 使用 \ 来作为连接符
+	const Ln2 = 0.693147180559945309417232121458\
+			176568075500134360255254120680009
+	const Log2E = 1/Ln2
+	const Billion = 1e9
+	const hardEight = (1 << 100) >> 97
 
+	// 多个常量定义在一行，类型推导。不推荐这样使用，常量多了看的不清晰。
+	const beef, two, third = "eat", 2, "veg"
+	const Monday, Tuesday, Wednesday, Thursday, Friday, Saturday = 1, 2, 3, 4, 5, 6
+	const (
+		Monday, Tuesday, Wednesday = 1, 2, 3
+		Thursday, Friday, Saturday = 4, 5, 6
+	)
+	
+	// 批量定义常量，类型推导
 	const (
 		GENDER = "female"
 		SALARY = 28000
 		HOBBY  = "reading"
 	)
-
 	fmt.Println("GENDER: ", GENDER, "SALARY:", SALARY, "HOBBY:", HOBBY)
 
+	
 	const (
 		a int = 100
 		b
@@ -34,6 +57,7 @@ func main() {
 	fmt.Printf("%T, %s\n", c, c)
 	fmt.Printf("%T, %s\n", d, d)
 
+	
 	type scheme string
 	const (
 		H  scheme = "HTTP"
@@ -53,13 +77,7 @@ func main() {
 	  iota 在const 关键字出现的时候被重置为0，const 中的变量每声明一行常量声明将使iota 计数一次
 	*/
 	
-	const (
-		n1 = iota // n1=0
-		n2        // n2=1
-		n3        // n3=2
-	)
-	fmt.Println("n1: ",n1, "n2: ",n2, "n3: ",n3)
-
+	// iota 可以被用作枚举值
 	const (
 	n11 = iota  // n1=0
 	n12 = iota  // n2=1
@@ -67,23 +85,31 @@ func main() {
 	)
 	fmt.Println("n11: ",n11, "n12: ",n12, "n13: ",n13)
 	
+	// 赋值一个常量时，之后没赋值的常量都会应用上一行的赋值表达式
+	const (
+		n1 = iota // n1=0
+		n2        // n2=1
+		n3        // n3=2
+	)
+	fmt.Println("n1: ",n1, "n2: ",n2, "n3: ",n3)
+	
 	// 匿名变量跳过某些值
 	const (
-		m1 = iota //0
-		m2        //1
-		_
-		m4 //3
+		m1 = iota // 0
+		m2        // 1
+		_         // 2
+		m4        // 3
 	)
 	fmt.Println("m1: ",m1, "m2: ",m2, "m4: ",m4)
 
 	// iota声明中间插队
 	const (
-		j1 = iota //0
-		j2 = 100  //100
-		j3 = iota //2
-		j4        //3
+		j1 = iota // 0
+		j2 = 100  // 100
+		j3 = iota // 2
+		j4        // 3
 	)
-	const j5 = iota //0
+	const j5 = iota   // 0
 
 	fmt.Println("j1: ",j1, "j2: ",j2, "j3: ",j3, "j4: ",j4, "j5: ",j5)
 
@@ -106,25 +132,31 @@ func main() {
 	fmt.Println(A, B, C, D, E, F, G, H, I, J)
 
 
-	// 定义数量级
+	// 定义数量级.使用 iota 结合 位运算 表示资源状态的使用案例
 	const (
-		_  = iota
-		KB = 1 << (10 * iota)
-		MB = 1 << (10 * iota)
-		GB = 1 << (10 * iota)
-		TB = 1 << (10 * iota)
-		PB = 1 << (10 * iota)
+		Open = 1 << iota  // 0001
+		Close             // 0010
+		Pending           // 0100
+	)
+	
+	const (
+		_  = iota		// 使用 _ 忽略不需要的 iota
+		KB = 1 << (10 * iota)	// 1 << (10*1)
+		MB = 1 << (10 * iota)	// 1 << (10*2)
+		GB = 1 << (10 * iota)	// 1 << (10*3)
+		TB = 1 << (10 * iota)	// 1 << (10*4)
+		PB = 1 << (10 * iota)	// 1 << (10*5)
 	)
 	fmt.Println("KB: ",KB, "MB:",MB, "GB:",GB, "TB: ",TB, "PB: ",PB)
 
 
-	// 多个iota定义在一行
+	// 多个iota定义在一行.赋值两个常量，iota 只会增长一次，而不会因为使用了两次就增长两次
 	const (
-		q, w = iota + 1, iota + 2 //1,2
-		e, r                      //2,3
-		t, y                      //3,4
+		Apple, Banana = iota + 1, iota + 2 // Apple=1 Banana=2
+		Cherimoya, Durian                  // Cherimoya=2 Durian=3
+		Elderberry, Fig                    // Elderberry=3, Fig=4
 	)
-	fmt.Println("q: ",q, "w: ",w, "e:",e, "r: ",r, "t:",t, "y: ",y)
+	fmt.Println("Apple: ",Apple, "Banana: ",Banana, "Cherimoya:",Cherimoya, "Durian: ",Durian, "Elderberry:",Elderberry, "Fig: ",Fig)
 
 	// 示例1
 	/*const (

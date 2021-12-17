@@ -53,6 +53,12 @@ func main() {
 	fmt.Println(`Hel"loWor"ld`)
 	fmt.Println("Hello`Wor`ld")
 
+	// 用两个反引号 `` 包裹的内容会原样输出
+	sss := `春眠不觉晓
+		一觉睡到老，处处都有鸟
+				夜来风雨声，花落知多少`
+	fmt.Println(sss)
+
 	fmt.Println("----------")
 
 	// 字符串拼接

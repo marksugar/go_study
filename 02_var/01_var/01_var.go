@@ -64,6 +64,7 @@ func main() {
 		USER = os.Getenv("USER")
 		GOROOT = os.Getenv("GOROOT")
 	)
+	fmt.Println(HOME, USER, GOROOT)
 	
 	// 多个变量定义在一行
 	var t, y, u int = 1, 2, 3

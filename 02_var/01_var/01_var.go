@@ -66,8 +66,8 @@ func main() {
 	)
 	
 	// 多个变量定义在一行
-	var m, j, k int = 1, 2, 3
-	fmt.Println(m, j, k)
+	var t, y, u int = 1, 2, 3
+	fmt.Println(t, y, u)
 	
 	/*
 	通过runtime包在运行时获取所在的操作系统类型，以及如何通过 os 包中的函数 os.Getenv() 来获取环境变量中的值，并保存到 string 类型的局部变量 path 中

@@ -86,7 +86,7 @@ func main() {
 
 	g := [...]int{1, 2, 3, 4, 5}
 	fmt.Println(g)
-	fmt.Println(g[3])
+	fmt.Println(g[3])  // 通过数组的第三个索拿到值
 	fmt.Println(len(f))
 
 	h := [...]int{1: 4, 2: 7}

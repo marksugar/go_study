@@ -26,11 +26,11 @@ func main() {
 	// 'A' 和 "A" 的区别：编码上的区别
 	v1 := 'A'
 	v2 := "A"
-	fmt.Printf("%T,%s\n", v1, v1) // int32
+	fmt.Printf("%T,%d\n", v1, v1) // int32
 	fmt.Printf("%T,%s\n", v2, v2)
 
 	v3 := "中"
-	fmt.Printf("%T, %d, %c, %q\n", v3, v3, v3, v3)
+	fmt.Printf("%T, %s, %q\n", v3, v3, v3)
 
 	// 字符转义,使用 \
 	/*

@@ -81,4 +81,10 @@ func main() {
 	b["小李"] = 200
 	fmt.Println(b)	// map[小姜:100 小李:200]
 
+	// 对空指针进行反向引用不合法，会让程序崩溃
+	//var np *int = nil
+	//*p = 0
+	// in Windows: stops only with: <exit code="-1073741819" msg="process crashed"/>
+// runtime error: invalid memory address or nil pointer dereference
+
 }

@@ -180,6 +180,7 @@ func main() {
 	// 注意64位系统和32位系统有区别
 	fmt.Printf("The size if ints is: %d\n", strconv.IntSize)
 
+	// 函数 strconv.Atoi 的作用是将一个字符串转换为一个整数
 	an,_ = strconv.Atoi(orig2)
 	fmt.Printf("The intger is: %d\n", an)
 	an +=5

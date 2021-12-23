@@ -34,7 +34,7 @@ func main() {
 
 	// range循环打印下标的索引和值
 	for index, value := range arr1 {
-		fmt.Printf("index:%d,数值是:%d\n", index, value)
+		fmt.Printf("index:%d,value:%d\n", index, value)
 	}
 
 	fmt.Println("----------")

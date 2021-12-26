@@ -33,7 +33,7 @@ import (
 		array,slice,map,function,pointer,struct,interface,channel...
 */
 
-func main() {
+func intDemo() {
 
 	b1 := true
 	fmt.Println("b1:", b1)
@@ -87,4 +87,8 @@ func main() {
 
 	var f3 = 2.75
 	fmt.Printf("%T,%f\n", f3, f3)
+}
+
+func main() {
+	intDemo()
 }

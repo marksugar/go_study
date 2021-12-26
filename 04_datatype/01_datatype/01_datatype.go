@@ -35,6 +35,7 @@ import (
 
 func intDemo() {
 
+	fmt.Println("int类型----------")
 	b1 := true
 	fmt.Println("b1:", b1)
 	b2 := false
@@ -77,7 +78,17 @@ func intDemo() {
 	var i7 = 100
 	fmt.Printf("%T,%d\n", i7, i7)
 
-	var f1 float32 = 3.14
+}
+
+func floatDemo() {
+	/*
+	单精度 float32
+	双精度 float64
+	浮点数=符号位+指数位+尾数位，浮点数都是有符号的
+	float64位的精度比float32位的精度高
+	 */
+	fmt.Println("float类型----------")
+	var f1 float32 = 89.12
 	var f2 float64 = 4.67
 	fmt.Printf("%T,%f\n", f1, f1)
 	fmt.Printf("%T,%f\n", f2, f2)
@@ -85,10 +96,24 @@ func intDemo() {
 	fmt.Printf("%T,%.2f\n", f1, f1)
 	fmt.Printf("%T,%.3f\n", f2, f2)
 
-	var f3 = 2.75
+	var f3 = -0.00089
 	fmt.Printf("%T,%f\n", f3, f3)
+
+	var f4 = -7809656.093
+	fmt.Printf("%T,%f\n", f4, f4)
+
+	/*
+	尾数部分可能丢失，造成精度损失
+	float64位的精度比float32位的精度高
+	 */
+
+	var f5 float32 = -123.0000901
+	var f6 float64 = -123.0000901
+
+	fmt.Println("f5=", f5,"\t","f6=", f6)
 }
 
 func main() {
 	intDemo()
+	floatDemo()
 }

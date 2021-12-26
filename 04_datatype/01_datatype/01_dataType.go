@@ -21,8 +21,10 @@ import (
 					uint16(0~65535,0~2的16次方减1,占2字节存储空间)
 					uint32(0~4294967295,0~2的32次方减1,占4字节存储空间)
 					uint64(0~18446744073709551615,0~2的64次方减1,占8字节存储空间)
-				byte: int8
-				rune: uint8
+				byte: 无符号，等价于int8，范围0~255，当要存储字符时选择byte
+				rune: int32，-2的31次方到2的31次方减1，表示一个Unicode编码
+				
+				int和uint类型，32位系统占4个字节，64位系统占8个字节
 			浮点数:float32, float64
 			复数：complex
 		字符串类型：string
@@ -39,10 +41,13 @@ func main() {
 
 	var i1 int8 = 100
 	fmt.Println("i1:", i1)
+
 	var i2 uint8 = 200
 	fmt.Println("i2:", i2)
+
 	var uit uint16 = 255
 	fmt.Println("uit:", uit)
+
 	var i3 int = 1000
 	fmt.Println("i3:", i3)
 
@@ -51,6 +56,12 @@ func main() {
 	i5 = i4
 	fmt.Println("i4:", i4, "i5:", i5)
 
+	var a int = 8900
+	fmt.Println("a:", a)
+
+	var b uint = 1
+	var c byte = 255
+	fmt.Println("b=", b, "c=", c)
 
 	// 类型推断
 	var i7 = 100

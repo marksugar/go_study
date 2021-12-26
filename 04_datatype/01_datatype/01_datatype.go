@@ -86,6 +86,7 @@ func floatDemo() {
 	浮点数=符号位+指数位+尾数位，浮点数都是有符号的
 	float64位的精度比float32位的精度高
 	Golang的浮点型默认声明为float64类型
+	开发过程中推荐使用float64
 	 */
 	fmt.Println("float类型----------")
 	var f1 float32 = 89.12
@@ -111,6 +112,15 @@ func floatDemo() {
 	var f6 float64 = -123.0000901
 
 	fmt.Println("f5=", f5,"\t","f6=", f6)
+
+	num1 := 5.12
+	num2 := .123
+	fmt.Println("num1=", num1, "num2=", num2)
+
+	num3 := 5.1234e2	// 5.1235 * 10的2次方
+	num4 := 5.1234E2
+	num5 := 5.1234E-2	// 5.1235 / 10的2次方
+	fmt.Println("num3=", num3, "num4=", num4, "num5=", num5)
 }
 
 func main() {

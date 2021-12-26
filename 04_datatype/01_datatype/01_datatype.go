@@ -82,10 +82,10 @@ func intDemo() {
 
 func floatDemo() {
 	/*
-	单精度 float32
-	双精度 float64
+	单精度 float32,双精度 float64
 	浮点数=符号位+指数位+尾数位，浮点数都是有符号的
 	float64位的精度比float32位的精度高
+	Golang的浮点型默认声明为float64类型
 	 */
 	fmt.Println("float类型----------")
 	var f1 float32 = 89.12

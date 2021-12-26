@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"unsafe"
 )
 
 /*
@@ -9,7 +10,7 @@ import (
 	1、基本数据类型：
 		布尔类型：bool
 			取值：true、false
-		数值类型：1字节(B)为8位(byte)
+		数值类型：1 byte = 8 bit
 			整数: 有无符号区别在于他们支持的数值范围
 				有符号整数：
 					int8(-128~127,占1字节存储空间)
@@ -63,9 +64,18 @@ func main() {
 	var c byte = 255
 	fmt.Println("b=", b, "c=", c)
 
+	var n1 = 100
+	// %T表示数据类型
+	fmt.Printf("n1的数据类型:%T\n", n1)
+
+	// 查看某个变量的占用字节大小和数据类型
+	var n2 int64 = 10
+	// unsafe.Sizeof(n2) unsafe包中的函数，可以返回n2变量占用的字节数
+	fmt.Printf("n2的类型:%T,n2占用的字节数是:%d\n", n2, unsafe.Sizeof(n2))
+
 	// 类型推断
 	var i7 = 100
-	fmt.Printf("%T,%d\n,", i7, i7)
+	fmt.Printf("%T,%d\n", i7, i7)
 
 	var f1 float32 = 3.14
 	var f2 float64 = 4.67

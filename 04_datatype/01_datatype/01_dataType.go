@@ -41,6 +41,8 @@ func main() {
 	fmt.Println("i1:", i1)
 	var i2 uint8 = 200
 	fmt.Println("i2:", i2)
+	var uit uint16 = 255
+	fmt.Println("uit:", uit)
 	var i3 int = 1000
 	fmt.Println("i3:", i3)
 

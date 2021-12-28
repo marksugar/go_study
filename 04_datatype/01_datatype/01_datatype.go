@@ -24,7 +24,7 @@ import (
 					uint64(0~18446744073709551615,0~2的64次方减1,占8字节存储空间)
 				byte: 无符号，等价于int8，范围0~255，当要存储字符时选择byte
 				rune: int32，-2的31次方到2的31次方减1，表示一个Unicode编码
-				
+
 				int和uint类型，32位系统占4个字节，64位系统占8个字节
 			浮点数:float32, float64
 			复数：complex
@@ -82,12 +82,12 @@ func intDemo() {
 
 func floatDemo() {
 	/*
-	单精度 float32,双精度 float64
-	浮点数=符号位+指数位+尾数位，浮点数都是有符号的
-	float64位的精度比float32位的精度高
-	Golang的浮点型默认声明为float64类型
-	开发过程中推荐使用float64
-	 */
+		单精度 float32,双精度 float64
+		浮点数=符号位+指数位+尾数位，浮点数都是有符号的
+		float64位的精度比float32位的精度高
+		Golang的浮点型默认声明为float64类型
+		开发过程中推荐使用float64
+	*/
 	fmt.Println("float类型----------")
 	var f1 float32 = 89.12
 	var f2 float64 = 4.67
@@ -104,26 +104,70 @@ func floatDemo() {
 	fmt.Printf("%T,%f\n", f4, f4)
 
 	/*
-	尾数部分可能丢失，造成精度损失
-	float64位的精度比float32位的精度高
-	 */
+		尾数部分可能丢失，造成精度损失
+		float64位的精度比float32位的精度高
+	*/
 
 	var f5 float32 = -123.0000901
 	var f6 float64 = -123.0000901
 
-	fmt.Println("f5=", f5,"\t","f6=", f6)
+	fmt.Println("f5=", f5, "\t", "f6=", f6)
 
 	num1 := 5.12
 	num2 := .123
 	fmt.Println("num1=", num1, "num2=", num2)
 
-	num3 := 5.1234e2	// 5.1235 * 10的2次方
-	num4 := 5.1234E2
-	num5 := 5.1234E-2	// 5.1235 / 10的2次方
+	num3 := 5.1234e2 // 5.1235 * 10的2次方
+	num4 := 5.1234e2
+	num5 := 5.1234e-2 // 5.1235 / 10的2次方
 	fmt.Println("num3=", num3, "num4=", num4, "num5=", num5)
+}
+
+func stringDemo() {
+	/*
+		go的字符串是由字节组成的
+		1、如果保存的字符在ASCII码表中，如：[0-9,a-z,A-Z]，则可以用byte
+		2、如果保存的字符对应的码值大于255，则需要考虑int类型保存
+		3、如果需要输出字符，则需要用格式化输出，使用%c来表示
+		4、go语言的字符使用UTF-8编码
+	*/
+	fmt.Println("----------")
+
+	c1 := 'a'
+	c2 := '0'
+
+	fmt.Println("c1=", c1)
+	fmt.Printf("c1的类型: %T\n", c1)
+
+	fmt.Println("c2=", c2)
+	fmt.Printf("c2的类型：%T\n", c2)
+	// %c初始的是对应的字符
+	fmt.Printf("c1=%c c2=%c\n", c1, c2)
+
+	fmt.Println("----------")
+
+	var d1 byte = 'a'
+	var d2 byte = '0'
+	fmt.Println("d1=", d1)
+	fmt.Printf("d1的类型: %T\n", d1)
+	fmt.Println("d2=", d2)
+	fmt.Printf("d2的类型：%T\n", d2)
+
+	//var d3 byte = '南'  // byte范围是0~255，因此这里overflow 溢出。
+	var d3 int = '南' // int类型的范围
+	fmt.Printf("d3=%c d3的码值=%d\n", d3, d3)
+
+	var d4 = "东"
+	fmt.Printf("d4=%s\n", d4)
+
+	// 字符类型可以进行运算，相当于证书
+	var e1 = 10 + 'a'	// 小a的ASCII码为 97。运算时会根据ASCII值计算
+	fmt.Println("e1=", e1)
 }
 
 func main() {
 	intDemo()
 	floatDemo()
+	stringDemo()
 }
+

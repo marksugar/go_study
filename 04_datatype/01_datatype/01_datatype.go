@@ -197,9 +197,23 @@ func stringDemo() {
 	fmt.Println(str5)
 }
 
+func defaultDataType(){
+	fmt.Println("----- default data type -----")
+	var a int			// 0
+	var b float32		// 0
+	var c float64		// 0
+	var isMarried bool	// false
+	var name string		// ""
+	// %v 表示按照变量的值输出
+	fmt.Printf("a=%d,b=%f,c=%f,isMaried=%v,name=%v", a,b,c,isMarried,name)
+
+
+}
+
 func main() {
 	intDemo()
 	floatDemo()
 	stringDemo()
+	defaultDataType()
 }
 

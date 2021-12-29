@@ -160,9 +160,41 @@ func stringDemo() {
 	var d4 = "东"
 	fmt.Printf("d4=%s\n", d4)
 
-	// 字符类型可以进行运算，相当于证书
-	var e1 = 10 + 'a'	// 小a的ASCII码为 97。运算时会根据ASCII值计算
+	// 字符类型可以进行运算，相当于整数
+	var e1 = 10 + 'a' // 小a的ASCII码为 97。运算时会根据ASCII值计算
 	fmt.Println("e1=", e1)
+
+	// go中字符串一旦赋值就不能更改
+	//str1 := "hello"
+	//str1[0] = "m"  // go中字符串不可变
+
+	// 双引号会识别转义符，反引号可以原生输出字符
+	str2 := "abc\nefg"
+	fmt.Println(str2)
+
+	str3 := `
+	package main
+	import (
+		"fmt"
+	)
+	func main() {
+		var s1 string = "tree"
+		fmt.Println("s1=", s1)
+	}
+	`
+	fmt.Println(str3)
+
+	// 字符串拼接
+	var str4 = "hello" + " golang"
+	str4 += " let's go"
+	fmt.Println(str4, "\n")
+
+	// 字符串拼接的操作很长，必须将加号留在上一行
+	var str5 = "hello" + " golang" +
+		" let's go" + " to your" +
+		" favorite provisioner"
+
+	fmt.Println(str5)
 }
 
 func main() {

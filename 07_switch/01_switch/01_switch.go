@@ -1,25 +1,48 @@
+/*
+ * @Author: Allen_Jol
+ * @LastEditors: Allen_Jol
+ * @Date: 2021-12-17 21:19:35
+ * @LastEditTime: 2022-01-12 21:46:40
+ * @version: v1.0
+ */
+
+/*
+	注意点：
+		case后是一个表达式。即 常量、变量、一个有返回值的函数都可以
+		case后的各个表达式的值的数据类型必须和switch的表达式数据类型一致
+		case后面可以带多个表达式，使用逗号间隔，比如:case 表达式1,表达式2
+		case后面的表达式如果是常量值(字面量)，则要求不能重复
+		case后面不需要带break，程序匹配到一个case后就会执行对应的代码块，然后退出switch。如果一个都匹配不到则会执行default
+		default不是必须的
+		switch 不带表达式，类似if...else形式
+*/
+
+/*
+	1、switch可以作用在其他类型上，但是case后的数值必须和switch作用的变量类型一致
+	2、case是无序的，default通常放在最后
+	3、case后的数值是唯一的，不能重复
+	4、default非必须，是可选的
+*/
+
 package main
 
 import "fmt"
 
-func main() {
-	/*
-		1、switch可以作用在其他类型上，但是case后的数值必须和switch作用的变量类型一致
-		2、case是无序的，default通常放在最后
-		3、case后的数值是唯一的，不能重复
-		4、default非必须，是可选的
-	*/
+func practiceDemo1() {
+	// num := 3
+	var num int
+	fmt.Println("请输入一个月份:")
+	fmt.Scanln(&num)
 
-	num := 3
 	switch num {
-	case 1:
-		fmt.Println("第一季度")
-	case 2:
-		fmt.Println("第二季度")
-	case 3:
-		fmt.Println("第三季度")
-	case 4:
-		fmt.Println("第四季度")
+	case 1, 2, 3:
+		fmt.Printf("输入的月份是%v月,是第一季度\n", num)
+	case 4, 5, 6:
+		fmt.Printf("输入的月份是%v月,是第二季度\n", num)
+	case 7, 8, 9:
+		fmt.Printf("输入的月份是%v月,是第三季度\n", num)
+	case 10, 11, 12:
+		fmt.Printf("输入的月份是%v月,是第四季度\n", num)
 	default:
 		fmt.Println("数据有误...")
 	}
@@ -31,9 +54,9 @@ func main() {
 	num2 := 0
 	oper := ""
 
-	fmt.Println("请输入一个整数:")
+	fmt.Println("请输入第一个整数:")
 	fmt.Scanln(&num1)
-	fmt.Println("请输入一个整数:")
+	fmt.Println("请输入第二个整数:")
 	fmt.Scanln(&num2)
 	fmt.Println("请输入一个操作: +,-,*,/")
 	fmt.Scanln(&oper)
@@ -82,6 +105,7 @@ func main() {
 
 	fmt.Println("----------")
 
+	// case 后可以有多个表达式，用逗号隔开
 	letter := "O"
 	switch letter {
 	case "A", "E", "I", "O", "U":
@@ -126,5 +150,89 @@ func main() {
 	case "python":
 		fmt.Println("Python语言")
 	}
+}
+
+func test(char byte) byte {
+	return char + 1
+}
+
+func practiceDemo2() {
+	var str byte
+	fmt.Println("请输入一个字符[a,b,c,d]")
+	fmt.Scanf("%c", &str)
+
+	switch test(str) + 1 {
+	case 'a':
+		fmt.Println("哞哞")
+	case 'b':
+		fmt.Println("布谷")
+	case 'c':
+		fmt.Println("汪汪")
+	case 'd':
+		fmt.Println("滴滴滴")
+	default:
+		fmt.Println("数据有误...")
+	}
+}
+func practiceDemo3() {
+	var n1 int32 = 5
+	var n2 int32 = 10
+	var n3 int32 = 5
+
+	switch n1 {
+	case n2, 10, 5:
+		fmt.Println("ok1")
+	case n3: // n3是个变量而不是常量值5，因此编译器是允许这样的。如果直接写5则编译器会报错，印上上一个case已经有常量5了
+		fmt.Println("ok2...")
+	default:
+		fmt.Println("没正确匹配")
+	}
 
 }
+
+func practiceDemo4() {
+	// 类似if else 的方式来用
+	var age int = 20
+	switch {
+	case age == 10:
+		fmt.Println("age = 10")
+	case age == 20:
+		fmt.Println("age == 20")
+	default:
+		fmt.Println("没匹配到")
+	}
+	fmt.Println("----------")
+
+	// case 中对score 进行范围判断
+	var score float64 = 95
+	switch {
+	case score > 90:
+		fmt.Println("优秀")
+	case score >= 70 && score <= 90:
+		fmt.Println("优良")
+	case score >= 60 && score <= 70:
+		fmt.Println("及格")
+	default:
+		fmt.Println("没匹配到")
+	}
+
+	// switch 后可以直接声明一个变量，用分号结束。不推荐这样玩
+	switch grade := 90; {
+	case grade > 90:
+		fmt.Println("优秀...")
+	case grade >= 70 && grade <= 90:
+		fmt.Println("优良...")
+	case grade >= 60 && grade <= 70:
+		fmt.Println("及格...")
+	default:
+		fmt.Println("没匹配到...")
+	}
+}
+
+func main() {
+	//practiceDemo1()
+	//practiceDemo2()
+	//practiceDemo3()
+	practiceDemo4()
+}
+

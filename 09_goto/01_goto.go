@@ -1,3 +1,10 @@
+/*
+ * @Author: Allen_Jol
+ * @LastEditors: Allen_Jol
+ * @Date: 2022-01-14 10:02:15
+ * @LastEditTime: 2022-01-14 10:11:15
+ * @version: v1.0
+ */
 package main
 
 import "fmt"
@@ -18,7 +25,7 @@ LOOP:
 	for a < 20 {
 		if a == 15 {
 			a += 1
-			goto LOOP
+			goto LOOP // 当a等于15时，跳转到 LOOP: 处，也就是跳过 输出 15
 		}
 		fmt.Printf("a的值为:%d\n", a)
 		a++
@@ -29,10 +36,10 @@ LOOP:
 
 	for i := 0; i <= 10; i++ {
 		for j := 0; j <= 10; j++ {
-			goto onExit
+			goto onExit // 跳转到 onExit 处
 		}
 	}
-	return
+	return // return后的语句不再执行，可以理解为结束程序
 
 onExit:
 	fmt.Println("err here,exit...")

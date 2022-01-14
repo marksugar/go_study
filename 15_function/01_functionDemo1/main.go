@@ -2,7 +2,7 @@
  * @Author: Allen_Jol
  * @LastEditors: Allen_Jol
  * @Date: 2022-01-14 10:48:54
- * @LastEditTime: 2022-01-14 13:33:10
+ * @LastEditTime: 2022-01-14 13:40:40
  * @version: v1.0
  */
 
@@ -14,6 +14,7 @@ import (
 
 func cal(n1 float64, n2 float64, operator string) float64 {
 	var res float64
+
 	switch operator {
 	case "+":
 		res = n1 + n2

@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// 在Go语言中能不用goto就不要用goto，容易引起程序混乱
+
 func main() {
 	/*
 		当a为15的时候,if判断成立，执行到goto，则会跳出if判断语句块后面的打印和a++

@@ -2,7 +2,7 @@
  * @Author: Allen_Jol
  * @LastEditors: Allen_Jol
  * @Date: 2021-12-16 21:38:06
- * @LastEditTime: 2022-01-13 22:38:23
+ * @LastEditTime: 2022-01-15 14:44:56
  * @version: v1.0
  */
 package main
@@ -45,6 +45,7 @@ func main() {
 	//}
 	//fmt.Println("Game Over...")
 
+	// break语句出现在多层嵌套语句亏啊中时，可以通过标签来指明要跳出到哪一层语句块
 	// 嵌套循环，因为由out，所以结束的是最外层的循环
 out:
 	for k := 1; k <= 5; k++ {
@@ -83,7 +84,7 @@ out:
 		以上是限制性在判断，因此至少会执行一次
 		当循环条件成立，则执行break，会跳出for循环(结束循环)
 	*/
-	
+
 	// do...while实现
 	var n int = 1
 	for {
@@ -94,3 +95,4 @@ out:
 		}
 	}
 }
+

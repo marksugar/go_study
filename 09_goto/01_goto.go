@@ -1,8 +1,8 @@
 /*
  * @Author: Allen_Jol
  * @LastEditors: Allen_Jol
- * @Date: 2022-01-14 10:02:15
- * @LastEditTime: 2022-01-14 10:11:15
+ * @Date: 2021-12-16 22:22:38
+ * @LastEditTime: 2022-01-16 15:02:52
  * @version: v1.0
  */
 package main
@@ -10,10 +10,17 @@ package main
 import "fmt"
 
 /*
-1、goto可以无条件的跳转到程序中指定的行
-2、goto语句通常与条件语句配合使用，可以用来实现条件转移、跳出循环体等功能
-3、在Go语言中一般不主张使用goto，能不用goto就不要用goto，容易引起程序混乱
+goto语句可以无条件转移到程序中指定的位置
+通常与条件语句配合使用。可以用来实现条件转移，跳出循环等功能
+
+语法：
+	goto label
+	...		// 上面使用了togo以后，这部分的代码就不会执行了
+	label: statement	// 直接跳转到此处
+
+注意：Go中一般不主张使用goto，以免造成程序流程的混乱，导致理解和调试程序产生困难
 */
+
 func main() {
 	/*
 		当a为15的时候,if判断成立，执行到goto，则会跳出if判断语句块后面的打印和a++
@@ -25,7 +32,7 @@ LOOP:
 	for a < 20 {
 		if a == 15 {
 			a += 1
-			goto LOOP // 当a等于15时，跳转到 LOOP: 处，也就是跳过 输出 15
+			goto LOOP
 		}
 		fmt.Printf("a的值为:%d\n", a)
 		a++
@@ -36,12 +43,14 @@ LOOP:
 
 	for i := 0; i <= 10; i++ {
 		for j := 0; j <= 10; j++ {
-			goto onExit // 跳转到 onExit 处
+			fmt.Println("j=", j)
+			goto onExit
 		}
 	}
-	return // return后的语句不再执行，可以理解为结束程序
+	return
 
 onExit:
 	fmt.Println("err here,exit...")
 
 }
+

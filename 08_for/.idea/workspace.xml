@@ -38,7 +38,7 @@
       <recent name="$PROJECT_DIR$/08_for" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build 01_multiFor.go">
+  <component name="RunManager" selected="Go Build.go build 02_break_continue.go">
     <configuration name="go build 01_multiFor.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="08_for" />
       <working_directory value="$PROJECT_DIR$" />
@@ -86,9 +86,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build 02_break_continue.go" />
         <item itemvalue="Go Build.go build 01_multiFor.go" />
         <item itemvalue="Go Build.go build github.com/allenjol/08_for/03_for_practice" />
-        <item itemvalue="Go Build.go build 02_break_continue.go" />
         <item itemvalue="Go Build.go build github.com/allenjol/08_for/01_for" />
         <item itemvalue="Go Build.go build github.com/allenjol/08_for" />
       </list>

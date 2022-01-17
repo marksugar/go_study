@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func practiceDemo1() {
 	for i := 1; i <= 10; i++ {
 		fmt.Printf("i的值：%d\n", i)
 	}
@@ -108,5 +108,8 @@ func main() {
 		}
 		fmt.Println()
 	}
+}
 
+func main() {
+	practiceDemo1()
 }

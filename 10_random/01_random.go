@@ -1,3 +1,10 @@
+/*
+ * @Author: Allen_Jol
+ * @LastEditors: Allen_Jol
+ * @Date: 2021-12-16 22:32:28
+ * @LastEditTime: 2022-01-15 14:24:39
+ * @version: v1.0
+ */
 package main
 
 import (
@@ -6,7 +13,7 @@ import (
 	"time"
 )
 
-func main() {
+func test() {
 	/*
 		随机数操作都在math/rand包下
 	*/
@@ -14,7 +21,7 @@ func main() {
 	fmt.Println(num)
 
 	for i := 0; i < 10; i++ {
-		num2 := rand.Intn(10) // Intn[0,n),左闭右开，表示0~9之间
+		num2 := rand.Intn(10) // 0~9之间
 		fmt.Println(num2)
 	}
 	rand.Seed(10000)
@@ -47,15 +54,49 @@ func main() {
 		fmt.Println(rand.Intn(100))
 	}
 
-
 	fmt.Println("----------")
 
 	/* 获取指定范围内的随机数
 	Intn  [0,n)
+
 	[15,76]
 		[0,76-15] 也就是 [0,61] + 15
 	*/
 
 	num4 := rand.Intn(61) + 15
 	fmt.Println("num3的值：", num4)
+}
+
+func randDemo() {
+	// time.now().Unix(): 返回一个从1970年1月1日0时0分0秒到现在得秒数
+	// fmt.Println(time.Now().Unix())
+
+	// 生成随机数还要设置一个种子
+	// rand.Seed(time.Now().Unix())
+
+	// unix 秒可能随机的还不够，使用纳秒来生成随机
+	// rand.Seed(time.Now().UnixNano())
+
+	// 生成100以内的随机数
+	// n := rand.Intn(100) + 1 // [0,100)
+	// fmt.Println(n)
+
+	// 随机生成一个1-100的随机数，直到生成了99这个数，则退出，看看一共用了几次得到99这个数
+	var count int = 0
+	for {
+		rand.Seed(time.Now().UnixNano())
+		n := rand.Intn(100) + 1
+		fmt.Println("n=",n)
+		count++
+
+		if n == 99 {
+			break
+		}
+	}
+	fmt.Printf("生成 99 这个数一共用了 %v 次", count)
+}
+
+func main() {
+	// test()
+	randDemo()
 }

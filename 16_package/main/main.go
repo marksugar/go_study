@@ -2,7 +2,7 @@
  * @Author: Allen_Jol
  * @LastEditors: Allen_Jol
  * @Date: 2022-01-16 18:21:42
- * @LastEditTime: 2022-01-16 18:54:55
+ * @LastEditTime: 2022-01-17 18:00:16
  * @version: v1.0
  */
 
@@ -34,5 +34,5 @@ func main() {
 	operator = '*'
 
 	result = utils.Cal(n1, n2, operator)
-	fmt.Printf("重新赋值后的result=%.3f", result)
+	fmt.Printf("赋值后的result=%.3f", result)
 }

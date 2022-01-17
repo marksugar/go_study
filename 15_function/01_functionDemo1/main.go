@@ -2,7 +2,7 @@
  * @Author: Allen_Jol
  * @LastEditors: Allen_Jol
  * @Date: 2022-01-14 10:48:54
- * @LastEditTime: 2022-01-14 13:40:40
+ * @LastEditTime: 2022-01-17 09:52:55
  * @version: v1.0
  */
 
@@ -14,7 +14,7 @@ import (
 
 func cal(n1 float64, n2 float64, operator string) float64 {
 	var res float64
-	
+
 	switch operator {
 	case "+":
 		res = n1 + n2
@@ -38,11 +38,15 @@ func main() {
 	result := cal(n1, n2, "+")
 	fmt.Printf("result=%v\n", result)
 
+	n1 = 5.3
+	n2 = 2.3
+	result = cal(n1, n2, "-")
+	fmt.Printf("result=%v\n", result)
+
 	var (
 		c1 float64 = 10.6
 		c2 float64 = 5.3
 	)
 	result2 := cal(c1, c2, "-")
-	fmt.Printf("result=%v\n", result2)
-
+	fmt.Printf("result=%v", result2)
 }

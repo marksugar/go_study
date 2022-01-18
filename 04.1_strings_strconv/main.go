@@ -6,9 +6,11 @@ import (
 	"strings"
 )
 
+/*
+https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/04.7.md
+https://github.com/allenjol/the-way-to-go_ZH_CN/blob/master/eBook/05.2.md
+*/
 func main() {
-	// https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/04.7.md
-
 	/*
 		前缀和后缀，判断以什么开头、以什么结尾
 		HasPrefix 判断字符串 s 是否以 prefix 开头：
@@ -170,21 +172,42 @@ func main() {
 		字符串和其他类型转换
 	*/
 	fmt.Println("----------")
-	var orig2 = "666"
+
+	// var orig2 = "666"
+	// var (
+	// 	an    int
+	// 	newS2 string
+	// )
+
+	// 注意64位系统和32位系统有区别
+	// fmt.Printf("The size if ints is: %d\n", strconv.IntSize)
+
+	// 函数 strconv.Atoi 的作用是将一个字符串转换为一个整数
+	// an, _ = strconv.Atoi(orig2)
+	// fmt.Printf("The intger is: %d\n", an)
+	// an += 5
+
+	// newS2 = strconv.Itoa(an)
+	// fmt.Printf("The newS2 is： %s\n", newS2)
+
+	var orig2 = "allen_jol"
 	var (
 		an    int
 		newS2 string
 	)
 
-	// 注意64位系统和32位系统有区别
 	fmt.Printf("The size if ints is: %d\n", strconv.IntSize)
 
-	// 函数 strconv.Atoi 的作用是将一个字符串转换为一个整数
-	an, _ = strconv.Atoi(orig2)
+	an, err := strconv.Atoi(orig2)
+	if err != nil{
+		fmt.Printf("orig2 %s is not intger,exiting with error %v\n",orig2, err)
+		return
+	}
+
 	fmt.Printf("The intger is: %d\n", an)
 	an += 5
-	
+
 	newS2 = strconv.Itoa(an)
-	fmt.Printf("The newS2 is： %s\n", newS2)
+	fmt.Printf("The newS2 is: %s\n", newS2)
 
 }

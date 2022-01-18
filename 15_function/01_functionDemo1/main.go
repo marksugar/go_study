@@ -21,7 +21,7 @@ func cal(n1 float64, n2 float64, operator string) float64 {
 	case "-":
 		res = n1 - n2
 	case "*":
-		res = n1 * n2
+		res = n1 *
 	case "/":
 		res = n1 / n2
 	default:

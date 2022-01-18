@@ -158,22 +158,21 @@ func main() {
 	str7 := "GO1|The ABC of Go|25"
 	sl2 := strings.Split(str7, "|")
 	fmt.Printf("Splitted in slice: %s\n", sl2)
-	for _, val :=range sl2{
+	for _, val := range sl2 {
 		fmt.Printf("%s - ", val)
 	}
 	fmt.Println()
 
-	str8 := strings.Join(sl2,";")
+	str8 := strings.Join(sl2, ";")
 	fmt.Printf("sl2 joined by \";\" %s\n", str8)
 
-
 	/*
-	字符串和其他类型转换
-	 */
+		字符串和其他类型转换
+	*/
 	fmt.Println("----------")
 	var orig2 = "666"
 	var (
-		an int
+		an    int
 		newS2 string
 	)
 
@@ -181,10 +180,11 @@ func main() {
 	fmt.Printf("The size if ints is: %d\n", strconv.IntSize)
 
 	// 函数 strconv.Atoi 的作用是将一个字符串转换为一个整数
-	an,_ = strconv.Atoi(orig2)
+	an, _ = strconv.Atoi(orig2)
 	fmt.Printf("The intger is: %d\n", an)
-	an +=5
+	an += 5
+	
 	newS2 = strconv.Itoa(an)
-	fmt.Printf("The new strings is： %s\n", newS2)
+	fmt.Printf("The newS2 is： %s\n", newS2)
 
 }

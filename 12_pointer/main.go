@@ -41,10 +41,13 @@ func pointDemo() {
 	*/
 	var ptr *int = &i
 	fmt.Printf("ptr=%v\n", ptr)
-	fmt.Printf("ptr自身的地址：%v\n", &ptr)
+	fmt.Printf("ptr自身的地址:%v\n", &ptr)
 	fmt.Println("根据变量i的内存地址取值(ptr指向的i的值):", *ptr)
 
-	fmt.Println("----------")
+	fmt.Println("==========")
+
+
+
 
 	// int类型的指针例子
 	i1 := 5
@@ -53,6 +56,9 @@ func pointDemo() {
 	// 根据i1的内存地址取值
 	var intP *int = &i1
 	fmt.Printf("根据内存地址 %p 拿到的值为: %d\n", intP, *intP)
+
+
+
 
 	// string类型的指针例子
 	fmt.Println("----- string类型的指针例子 -----")
@@ -70,14 +76,19 @@ func pointDemo() {
 
 	fmt.Println("===================")
 
+
+
 	// 1、定义一个变量inum 赋值为9，此时指向一个内存地址，然后打印此变量的内存地址
 	var inum int = 9
-	fmt.Printf("inum的内存地址：%v\n", &inum)
+	fmt.Printf("inum的内存地址:%v\n", &inum)
 	// 2、定义一个int类型的指针变量ptr2，然后将inum的内存地址赋值给ptr2，并通过ptr2去修改inum的值
 	var ptr2 *int
 	ptr2 = &inum
-	*ptr2 = 10	// *ptr原本的值是9，但是这里将一个新的值10赋值给*ptr2，则会导致inum的值变成10
-	fmt.Println("inum的值：", inum)
+	*ptr2 = 10 // *ptr原本的值是9，但是这里将一个新的值10赋值给*ptr2，则会导致inum的值变成10
+	fmt.Println("inum的值:", inum)
+
+
+
 
 	fmt.Println("===================")
 
@@ -106,6 +117,10 @@ func pointDemo() {
 	*a2 = 10
 	fmt.Println("a2内存地址赋值后的值:", *a2)
 
+
+
+
+	fmt.Println("===================")
 	/*
 		make也用于分配内存地址，和new相比，它只用于slice、map、channel的内存创建。
 		由于这三种类型就是引用类型，因此没必要返回他们的指针
@@ -116,8 +131,8 @@ func pointDemo() {
 	b["小李"] = 200
 	fmt.Println(b) // map[小姜:100 小李:200]
 }
+
 func main() {
 	pointDemo()
 
 }
-
